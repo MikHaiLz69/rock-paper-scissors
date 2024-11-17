@@ -1,19 +1,21 @@
 class MainMenuScene extends Phaser.Scene {
     constructor() {
-        super({ key: 'MainMenu' });
+        super({ key: 'MainMenuScene' });
     }
 
     preload() {
         // Preload assets like background images or buttons
         this.load.image('title', './src/ui/title.png');
-        this.load.image('background', './src/ui/platformer_background_1/platformer_background_1.png'); // Add your actual image path
+        this.load.image('background', './src/ui/platformer_background_1/background_1_darken.png'); // Add your actual image path
         this.load.image('playButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual playButton image path
         this.load.image('rankingButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual rankingButton image path
     }
 
     create() {
+        const centerX = this.cameras.main.width / 2;
+        const centerY = this.cameras.main.height / 2;
         // Add background to the scene
-        const background = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'background')
+        const background = this.add.image(centerX, centerY, 'background')
             .setOrigin(0.5)
             .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
         
@@ -23,20 +25,20 @@ class MainMenuScene extends Phaser.Scene {
         background.setScale(scale).setScrollFactor(0);
         
         // Add title
-        const margin = 100; // Adjust this value for your margin
-        const titleYPosition = 50 + margin;
-        const title = this.add.image(this.cameras.main.width / 2, titleYPosition, 'title')
+        const title = this.add.image(centerX, this.cameras.main.height * 0.2, 'title')
             .setOrigin(0.5)
-            .setScale(0.3);
+            .setScale(0.5);
 
         // Add playButton
-        const playButton = this.add.image(this.cameras.main.width / 2, this.cameras.main.height * 0.45, 'playButton')
+        const playButton = this.add.image(centerX, this.cameras.main.height * 0.5, 'playButton')
             .setInteractive()
-            .setScale(0.2)
+            .setScale(0.3)
             .setOrigin(0.5);
         
         // Add "Main Menu" text above the Play button
-        this.add.text(this.cameras.main.width / 2, playButton.y - 70, 'Main Menu', { font: 'bold 30px Arial', fill: 'black' })
+        this.add.text(this.cameras.main.width / 2, playButton.y - 70, 'Main Menu', { 
+                font: 'bold 30px Arial',
+                fill: '#ffffff' })
             .setOrigin(0.5);
         
         // Add "Play" text on playButton
@@ -44,9 +46,9 @@ class MainMenuScene extends Phaser.Scene {
             .setOrigin(0.5);
     
         // Add rankingButton
-        const rankingButton = this.add.image(this.cameras.main.width / 2, this.cameras.main.height * 0.55, 'rankingButton')
+        const rankingButton = this.add.image(centerX, this.cameras.main.height * 0.6, 'rankingButton')
             .setInteractive()
-            .setScale(0.2)
+            .setScale(0.3)
             .setOrigin(0.5);
         
         // Add "Ranking" text on rankingButton
