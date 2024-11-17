@@ -18,3 +18,8 @@ scripts/tsgen/test/bin/
 scripts/tsgen/test/output.txt
 
 plugins/spine*/spine-runtimes/
+r-p-c-codebase/
+dataconnect/
+dataconnect-generated/
+functions/
+.github/workflows/
