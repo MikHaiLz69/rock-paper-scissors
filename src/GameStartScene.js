@@ -6,6 +6,7 @@ class GameStartScene extends Phaser.Scene {
     preload() {
         // Load assets
         this.load.image('titleImage', './src/ui/title.png');
+        this.load.image('background', './src/ui/platformer_background_1/platformer_background_1.png'); // Add your actual image path
         this.load.image('backButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png');
         this.load.image('startButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png');
     }
@@ -13,8 +14,19 @@ class GameStartScene extends Phaser.Scene {
     create() {
         // Spacing variables
         const centerX = this.cameras.main.width / 2;
+        const centerY = this.cameras.main.height / 2;
         const spacing = 40; // Vertical spacing between items
         let currentY = this.cameras.main.height * 0.2; // Starting position (20% of screen height)
+
+        // Add background to the scene
+        const background = this.add.image(centerX, centerY, 'background')
+            .setOrigin(0.5)
+            .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+        
+        const scaleX = this.cameras.main.width / background.width;
+        const scaleY = this.cameras.main.height / background.height;
+        const scale = Math.max(scaleX, scaleY);
+        background.setScale(scale).setScrollFactor(0);
 
         // Title Image
         const title = this.add.image(centerX, currentY, 'titleImage')
@@ -62,11 +74,11 @@ class GameStartScene extends Phaser.Scene {
 
         // Button Interactions
         startButton.on('pointerdown', () => {
-            this.scene.start('GameScene');
+            this.scene.start('GameplayStageScene');
         });
 
         backButton.on('pointerdown', () => {
-            this.scene.start('MainMenu');
+            this.scene.start('MainMenuScene');
         });
     }
 }
