@@ -40,7 +40,7 @@ class GameStartScene extends Phaser.Scene {
         const startButton = this.add.image(centerX, currentY, 'startButton')
             .setInteractive()
             .setOrigin(0.5)
-            .setScale(0.2);
+            .setScale(0.3);
         this.add.text(startButton.x, startButton.y, 'Start', { font: '20px Arial', fill: '#ffffff' }).setOrigin(0.5);
         
         // Update Y position
@@ -50,7 +50,7 @@ class GameStartScene extends Phaser.Scene {
         const backButton = this.add.image(centerX, currentY, 'backButton')
             .setInteractive()
             .setOrigin(0.5)
-            .setScale(0.2);
+            .setScale(0.3);
         this.add.text(backButton.x, backButton.y, 'Back', { font: '20px Arial', fill: '#ffffff' }).setOrigin(0.5);
         
         // Update Y position
