@@ -96,7 +96,7 @@ class GameplayStageScene extends Phaser.Scene {
 
     // Update life icons when life points change
     updateLifePoints(newLifePoints) {
-        this.lifePoints = newLifePoints;
+        this.lifePoints = Math.max(0, newLifePoints); // Ensure life points don't go below 0 
         this.createLifeIcons();
     }
 
@@ -192,11 +192,7 @@ class GameplayStageScene extends Phaser.Scene {
 
     updateLifePointsAfterRound(roundResult) {
         if (roundResult === 'lose') {
-            this.updateLifePoints(this.lifePoints - 1);
-            if (this.lifePoints <= 1) {
-                // Apply penalty for close-call (losing 2 rounds within a stage)
-                this.updateLifePoints(this.lifePoints - 1);
-            }
+            this.updateLifePoints(this.lifePoints - 1); // Deduct only one life point per loss
         }
     }
 
