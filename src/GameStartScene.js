@@ -66,7 +66,7 @@ class GameStartScene extends Phaser.Scene {
             5) Earn points for each win and get bonus life points every 3 stages.
         `;
         this.add.text(40, currentY, rulesText, {
-            font: '16px Arial',
+            font: '24px Arial',
             fill: '#ffffff',
             align: 'left',
             wordWrap: { width: this.cameras.main.width - 80, useAdvancedWrap: true }
