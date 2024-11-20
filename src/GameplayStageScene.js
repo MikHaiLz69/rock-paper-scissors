@@ -13,8 +13,6 @@ class GameplayStageScene extends Phaser.Scene {
         this.load.image('paperButton', './src/ui/Icons/paper.png');
         this.load.image('scissorsButton', './src/ui/Icons/scissors.png');
         this.load.image('lifeIcon', './src/ui/Icons/Icon_Large_HeartFull.png');
-
-        // New stage icons
         this.load.image('stageActive', './src/ui/Icons/Icon_Large_Star.png');
         this.load.image('stageInactive', './src/ui/Icons/Icon_Large_StarGrey.png');
     }
@@ -38,43 +36,43 @@ class GameplayStageScene extends Phaser.Scene {
         // Create stage indicators
         this.createStageIndicators();
 
-        // Stage text
-        this.stageText = this.add.text(100, 200, `stage ${this.currentStage}`, {
+        // Stage text - Adjusted position
+        this.stageText = this.add.text(centerX - 170, 100, `stage ${this.currentStage}`, {
             font: 'bold 24px Arial',
             fill: '#ffffff'
         }).setOrigin(0.5);
 
-        // Round text
-        this.roundText = this.add.text(435, 200, `Round ${this.currentRound}/3`, {
+        // Round text - Adjusted position
+        this.roundText = this.add.text(centerX + 170, 100, `Round ${this.currentRound}/3`, {
             font: '20px Arial',
             fill: '#ffffff'
         }).setOrigin(0.5);
 
-        // Life Points Display
+        // Life Points Display - Adjusted position
         this.lifePoints = 3; // initialize life points
         this.lifeIcons = [];
         this.createLifeIcons();
 
-        // Score Counter
+        // Score Counter - Adjusted position
         this.score = 0;
         this.winStreak = 0;
-        this.scoreText = this.add.text(this.cameras.main.width - 50, 50, 'Score: 0', {
+        this.scoreText = this.add.text(this.cameras.main.width - 100, 50, 'Score: 0', {
             font: '24px Arial',
             fill: '#ffffff',
         }).setOrigin(1, 0.5);
 
-        // Timer
-        this.timerText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height * 0.05, '10', {
+        // Timer - Adjusted position
+        this.timerText = this.add.text(centerX, 50, '10', {
             font: 'Bold 48px Arial',
             fill: 'Yellow',
         }).setOrigin(0.5);
 
-        // Opponent and Player Choices
-        this.opponentChoice = this.add.text(this.cameras.main.width / 2, this.cameras.main.height * 0.25, 'Opponent: ', {
+        // Opponent and Player Choices - Adjusted position
+        this.opponentChoice = this.add.text(centerX, centerY - 230, 'Opponent: ', {
             font: '36px Arial',
             fill: '#ffffff',
         }).setOrigin(0.5);
-        this.playerChoice = this.add.text(this.cameras.main.width / 2, this.cameras.main.height * 0.7, 'You: ', {
+        this.playerChoice = this.add.text(centerX, centerY + 180, 'You: ', {
             font: '36px Arial',
             fill: '#ffffff',
         }).setOrigin(0.5);
