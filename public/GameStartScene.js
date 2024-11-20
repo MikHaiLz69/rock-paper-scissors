@@ -5,10 +5,10 @@ class GameStartScene extends Phaser.Scene {
 
     preload() {
         // Load assets
-        this.load.image('titleImage', './src/ui/title.png');
-        this.load.image('background', './src/ui/platformer_background_1/platformer_background_1.png'); // Add your actual image path
-        this.load.image('backButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png');
-        this.load.image('startButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png');
+        this.load.image('titleImage', './public/ui/title.png');
+        this.load.image('background', './public/ui/platformer_background_1/platformer_background_1.png'); // Add your actual image path
+        this.load.image('backButton', './public/ui/ButtonsText/ButtonText_Small_ROund.png');
+        this.load.image('startButton', './public/ui/ButtonsText/ButtonText_Small_ROund.png');
     }
 
     create() {

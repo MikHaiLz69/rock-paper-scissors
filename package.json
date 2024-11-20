@@ -102,6 +102,7 @@
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "eventemitter3": "^5.0.1",
     "firebase": "^10.14.1",
+    "firebase-admin": "^13.0.0",
     "live-server": "^1.2.0",
     "phaser": "^3.86.0"
   }

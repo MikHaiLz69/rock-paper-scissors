@@ -5,10 +5,10 @@ class MainMenuScene extends Phaser.Scene {
 
     preload() {
         // Preload assets like background images or buttons
-        this.load.image('title', './src/ui/title.png');
-        this.load.image('background', './src/ui/platformer_background_1/background_1_darken.png'); // Add your actual image path
-        this.load.image('playButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual playButton image path
-        this.load.image('rankingButton', './src/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual rankingButton image path
+        this.load.image('title', './public/ui/title.png');
+        this.load.image('background', './public/ui/platformer_background_1/background_1_darken.png'); // Add your actual image path
+        this.load.image('playButton', './public/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual playButton image path
+        this.load.image('rankingButton', './public/ui/ButtonsText/ButtonText_Small_ROund.png'); // Add your actual rankingButton image path
     }
 
     create() {

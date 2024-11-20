@@ -9,13 +9,13 @@ class GameplayStageScene extends Phaser.Scene {
 
     preload() {
         // Preload assets
-        this.load.image('gameplaybackground', './src/ui/platformer_background_1/pink_pastel_bg.png');
-        this.load.image('rockButton', './src/ui/Icons/rock.png');
-        this.load.image('paperButton', './src/ui/Icons/paper.png');
-        this.load.image('scissorsButton', './src/ui/Icons/scissors.png');
-        this.load.image('lifeIcon', './src/ui/Icons/Icon_Large_HeartFull.png');
-        this.load.image('stageActive', './src/ui/Icons/Icon_Large_Star.png');
-        this.load.image('stageInactive', './src/ui/Icons/Icon_Large_StarGrey.png');
+        this.load.image('gameplaybackground', './public/ui/platformer_background_1/pink_pastel_bg.png');
+        this.load.image('rockButton', './public/ui/Icons/rock.png');
+        this.load.image('paperButton', './public/ui/Icons/paper.png');
+        this.load.image('scissorsButton', './public/ui/Icons/scissors.png');
+        this.load.image('lifeIcon', './public/ui/Icons/Icon_Large_HeartFull.png');
+        this.load.image('stageActive', './public/ui/Icons/Icon_Large_Star.png');
+        this.load.image('stageInactive', './public/ui/Icons/Icon_Large_StarGrey.png');
     }
 
     create() {
