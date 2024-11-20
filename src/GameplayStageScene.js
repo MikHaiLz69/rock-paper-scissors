@@ -329,23 +329,21 @@ class GameplayStageScene extends Phaser.Scene {
     }
 
     handleLifeRecovery() {
+        // Increase life points by 1 every 3 stages
         if (this.lifePoints < this.MAX_LIFE_POINTS) {
-            // Recover 1 life point
             this.updateLifePoints(this.lifePoints + 1);
-        } else {
-            // Convert to score bonus
-            const bonusPoints = this.consecutiveFullLife >= 3 ? 10 : 5;
-            this.score += bonusPoints;
-            this.scoreText.setText(`Score: ${this.score}`);
 
-            const conversionText = this.add.text(
+            // Optinal: Add visual feedback
+            const recoveryText = this.add.text(
                 this.cameras.main.width / 2,
-                this.cameras.main.height * 2,
-                `Life Conversion Bonus: +${bonusPoints}`,
-                { font: '24px Arial', fill: '#00ff00' }
+                this.cache.main.height * 0.4,
+                'Life Point Recovered!', {
+                    font: '24px Arial',
+                    fill: '#00ff00'
+                }
             ).setOrigin(0.5);
 
-            this.time.delayedCall(1500, () => conversionText.destroy());
+            this.time.delayedCall(1500, () => recoveryText.destroy());
         }
     }
 
@@ -492,7 +490,9 @@ class GameplayStageScene extends Phaser.Scene {
                 this.winStreak = 0;
                 break;
         }
-        this.score += points;
+
+        // Prevent score from going negative
+        this.score = Math.max(0, this.score + points);
         this.scoreText.setText(`Score: ${this.score}`);
     }
 
@@ -532,7 +532,7 @@ class GameplayStageScene extends Phaser.Scene {
         // Optionally, display a game over message
         const gameOverText = this.add.text(
             this.cameras.main.width / 2, 
-            this.cameras.main.height * 0.3, 
+            this.cameras.main.height * 0.2, 
             'Game Over', 
             {
                 font: 'bold 48px Arial',
