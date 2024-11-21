@@ -6,6 +6,9 @@
   "etags": {
     "r-p-c-9b671": {
       "extensionInstances": {}
+    },
+    "rpc-game-web": {
+      "extensionInstances": {}
     }
   }
 }
